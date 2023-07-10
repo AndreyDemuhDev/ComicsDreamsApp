@@ -7,7 +7,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.pidzama.comicsdreamsapp.navigation.SetupNavGraph
 import com.pidzama.comicsdreamsapp.ui.theme.ComicsDreamsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController
