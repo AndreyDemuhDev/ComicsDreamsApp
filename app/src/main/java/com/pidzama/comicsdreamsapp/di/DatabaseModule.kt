@@ -20,8 +20,8 @@ object DatabaseModule {
     fun provideDatabase(
         @ApplicationContext context: Context
     ) = Room.databaseBuilder(
-        context = context,
-        klass = HeroesDatabase::class.java,
-        name = NAME_HERO_DATABASE
+        context,
+        HeroesDatabase::class.java,
+        NAME_HERO_DATABASE
     ).build()
 }

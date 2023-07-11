@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.pidzama.comicsdreamsapp.presentation.screen.home.HomeScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.onboarding.OnBoardingScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.splash.SplashScreen
 import com.pidzama.comicsdreamsapp.util.Constants.DETAILS_KEY
@@ -17,7 +18,7 @@ import com.pidzama.comicsdreamsapp.util.Constants.DETAILS_KEY
 fun SetupNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screens.OnBoarding.route
+        startDestination = Screens.Splash.route
     ) {
         composable(route = Screens.Splash.route) {
             SplashScreen(navController = navController)
@@ -26,7 +27,7 @@ fun SetupNavGraph(navController: NavHostController) {
             OnBoardingScreen(navController = navController)
         }
         composable(route = Screens.Home.route) {
-
+            HomeScreen(navController = navController)
         }
         composable(
             route = Screens.Details.route,

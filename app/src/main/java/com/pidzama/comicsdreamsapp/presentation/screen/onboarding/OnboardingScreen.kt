@@ -17,15 +17,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.pager.*
 import com.pidzama.comicsdreamsapp.R
 import com.pidzama.comicsdreamsapp.domain.model.OnBoardingPages
+import com.pidzama.comicsdreamsapp.navigation.Screens
 import com.pidzama.comicsdreamsapp.ui.theme.*
 
 @ExperimentalPagerApi
 @Composable
-fun OnBoardingScreen(navController: NavHostController) {
+fun OnBoardingScreen(
+    navController: NavHostController,
+    onBoardingViewModel: OnBoardingViewModel = hiltViewModel()
+) {
     val pages = listOf(
         OnBoardingPages.FirstScreen,
         OnBoardingPages.SecondScreen,
@@ -60,7 +65,9 @@ fun OnBoardingScreen(navController: NavHostController) {
             modifier = Modifier.weight(1f),
             pagerState = pagerState
         ) {
-
+            navController.popBackStack()
+            navController.navigate(Screens.Home.route)
+            onBoardingViewModel.saveOnBoardingState(showed = true)
         }
     }
 }
@@ -118,7 +125,7 @@ fun FinishButton(
         horizontalArrangement = Arrangement.Center
     ) {
         AnimatedVisibility(
-            visible = pagerState.currentPage == pagerState.pageCount-1
+            visible = pagerState.currentPage == pagerState.pageCount - 1
         ) {
             Button(
                 onClick = onClick,
