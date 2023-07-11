@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ComicsDreamsApp</string>
+    <string name="splash_logo">Splash logo</string>
+    <string name="on_boarding_image">On Boarding Image</string>
 </resources>
