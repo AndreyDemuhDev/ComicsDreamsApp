@@ -2,7 +2,8 @@ package com.pidzama.comicsdreamsapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.pidzama.comicsdreamsapp.data.local.HeroesDatabase
+import androidx.room.RoomDatabase
+import com.pidzama.comicsdreamsapp.data.local.ComicsDreamsDatabase
 import com.pidzama.comicsdreamsapp.util.Constants.NAME_HERO_DATABASE
 import dagger.Module
 import dagger.Provides
@@ -19,9 +20,11 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(
         @ApplicationContext context: Context
-    ) = Room.databaseBuilder(
-        context,
-        HeroesDatabase::class.java,
-        NAME_HERO_DATABASE
-    ).build()
+    ): ComicsDreamsDatabase {
+        return Room.databaseBuilder(
+            context,
+            ComicsDreamsDatabase::class.java,
+            NAME_HERO_DATABASE
+        ).build()
+    }
 }
