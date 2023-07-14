@@ -9,8 +9,8 @@ import com.pidzama.comicsdreamsapp.domain.model.HeroRemoteServer
 @Dao
 interface HeroRemoteServerDao {
 
-    @Query("SELECT * FROM hero_remote_server_table WHERE id=:id")
-    suspend fun getRemoteKey(id: Int): HeroRemoteServer?
+    @Query("SELECT * FROM hero_remote_server_table WHERE id=:heroId")
+    suspend fun getRemoteKey(heroId: Int): HeroRemoteServer?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(heroRemoteServer: List<HeroRemoteServer>)

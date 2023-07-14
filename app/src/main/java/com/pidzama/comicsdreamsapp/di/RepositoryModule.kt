@@ -5,6 +5,7 @@ import com.pidzama.comicsdreamsapp.data.repository.DataStoreOptionsImpl
 import com.pidzama.comicsdreamsapp.data.repository.Repository
 import com.pidzama.comicsdreamsapp.domain.repository.DataStoreOptions
 import com.pidzama.comicsdreamsapp.domain.use_cases.UseCases
+import com.pidzama.comicsdreamsapp.domain.use_cases.get_all_heroes.GetAllHeroesUseCase
 import com.pidzama.comicsdreamsapp.domain.use_cases.read_onboarding.ReadOnBoardingUseCase
 import com.pidzama.comicsdreamsapp.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
 import dagger.Module
@@ -31,7 +32,8 @@ object RepositoryModule {
     fun provideUseCases(repository: Repository): UseCases {
         return UseCases(
             saveOnBoardingUseCase = SaveOnBoardingUseCase(repository = repository),
-            readOnBoardingUseCase = ReadOnBoardingUseCase(repository = repository)
+            readOnBoardingUseCase = ReadOnBoardingUseCase(repository = repository),
+            getAllHeroUseCase = GetAllHeroesUseCase(repository = repository)
         )
     }
 }

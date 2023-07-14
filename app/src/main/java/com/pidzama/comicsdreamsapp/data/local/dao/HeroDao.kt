@@ -8,7 +8,7 @@ import com.pidzama.comicsdreamsapp.domain.model.Hero
 interface HeroDao {
 
     @Query("SELECT * FROM hero_table ORDER BY id")
-    fun gelAllHero(): PagingSource<Int, Hero>
+    fun gelAllHeroes(): PagingSource<Int, Hero>
 
     @Query("SELECT * FROM hero_table WHERE id=:id")
     fun getCurrentHero(id: Int): Hero

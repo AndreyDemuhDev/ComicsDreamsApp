@@ -11,7 +11,7 @@ import com.pidzama.comicsdreamsapp.util.DatabaseTypeConverter
 
 @Database(entities = [Hero::class, HeroRemoteServer::class], version = 1)
 @TypeConverters(DatabaseTypeConverter::class)
-abstract class HeroesDatabase : RoomDatabase() {
+abstract class ComicsDreamsDatabase : RoomDatabase() {
 
     abstract fun heroDao(): HeroDao
     abstract fun heroRemoteServerDao(): HeroRemoteServerDao

@@ -11,7 +11,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.pidzama.comicsdreamsapp.presentation.screen.home.HomeScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.onboarding.OnBoardingScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.splash.SplashScreen
-import com.pidzama.comicsdreamsapp.util.Constants.DETAILS_KEY
 
 @ExperimentalPagerApi
 @Composable
@@ -31,7 +30,7 @@ fun SetupNavGraph(navController: NavHostController) {
         }
         composable(
             route = Screens.Details.route,
-            arguments = listOf(navArgument(DETAILS_KEY) {
+            arguments = listOf(navArgument("heroId") {
                 type = NavType.IntType
             })
         ) {
