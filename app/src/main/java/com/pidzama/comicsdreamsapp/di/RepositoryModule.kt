@@ -8,6 +8,7 @@ import com.pidzama.comicsdreamsapp.domain.use_cases.UseCases
 import com.pidzama.comicsdreamsapp.domain.use_cases.get_all_heroes.GetAllHeroesUseCase
 import com.pidzama.comicsdreamsapp.domain.use_cases.read_onboarding.ReadOnBoardingUseCase
 import com.pidzama.comicsdreamsapp.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
+import com.pidzama.comicsdreamsapp.domain.use_cases.search_heroes.SearchHeroesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +34,8 @@ object RepositoryModule {
         return UseCases(
             saveOnBoardingUseCase = SaveOnBoardingUseCase(repository = repository),
             readOnBoardingUseCase = ReadOnBoardingUseCase(repository = repository),
-            getAllHeroUseCase = GetAllHeroesUseCase(repository = repository)
+            getAllHeroUseCase = GetAllHeroesUseCase(repository = repository),
+            searchHeroUseCase = SearchHeroesUseCase(repository = repository)
         )
     }
 }

@@ -88,7 +88,7 @@ fun ShimmerItem(alpha: Float) {
                         color = if (isSystemInDarkTheme()) ShimmerDarkGray else ShimmerMediumGray,
                         shape = RoundedCornerShape(size = EXTRA_SMALL_PADDING_6)
                     ) {}
-                    Spacer(modifier = Modifier.padding(all = SMALL_PADDING_10))
+                    Spacer(modifier = Modifier.padding(all = SPACE_RATING_SHIMMER_PADDING))
                 }
             }
         }
