@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.pidzama.comicsdreamsapp.presentation.screen.home.HomeScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.onboarding.OnBoardingScreen
+import com.pidzama.comicsdreamsapp.presentation.screen.search.SearchScreen
 import com.pidzama.comicsdreamsapp.presentation.screen.splash.SplashScreen
 
 @ExperimentalPagerApi
@@ -37,7 +38,7 @@ fun SetupNavGraph(navController: NavHostController) {
 
         }
         composable(route = Screens.Search.route) {
-
+            SearchScreen(navController = navController)
         }
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.pidzama.comicsdreamsapp.navigation.Screens
 import com.pidzama.comicsdreamsapp.presentation.common.ListContent
 
 @Composable
@@ -16,7 +17,9 @@ fun HomeScreen(
 
     Scaffold(
         topBar = {
-            HomeTopBar(onSearchClick = {})
+            HomeTopBar(onSearchClick = {
+                navController.navigate(Screens.Search.route)
+            })
         },
         content = {
             ListContent(

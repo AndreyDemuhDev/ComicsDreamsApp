@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.pidzama.comicsdreamsapp.data.local.ComicsDreamsDatabase
 import com.pidzama.comicsdreamsapp.data.paging_source.HeroRemoteMediator
+import com.pidzama.comicsdreamsapp.data.paging_source.SearchHeroes
 import com.pidzama.comicsdreamsapp.data.remote.ComicsDreamsApi
 import com.pidzama.comicsdreamsapp.domain.model.Hero
 import com.pidzama.comicsdreamsapp.domain.repository.RemoteDataSource
@@ -32,7 +33,15 @@ class RemoteDataSourceImpl(
         ).flow
     }
 
-    override fun searchHeroes(): Flow<PagingData<Hero>> {
-        TODO("Not yet implemented")
+    override fun searchHeroes(query: String): Flow<PagingData<Hero>> {
+        return Pager(
+            config = PagingConfig(pageSize = ITEMS_PER_PAGE),
+            pagingSourceFactory = {
+                SearchHeroes(
+                    comicsDreamsApi = comicsDreamsApi,
+                    query = query
+                )
+            }
+        ).flow
     }
 }

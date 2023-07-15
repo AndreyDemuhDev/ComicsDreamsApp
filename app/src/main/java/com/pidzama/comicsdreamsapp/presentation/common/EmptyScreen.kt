@@ -5,6 +5,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -19,19 +21,32 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.paging.compose.LazyPagingItems
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.pidzama.comicsdreamsapp.R
+import com.pidzama.comicsdreamsapp.domain.model.Hero
 import com.pidzama.comicsdreamsapp.ui.theme.*
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
 @Composable
-fun EmptyScreen(error: LoadState.Error) {
-    val message by remember {
-        mutableStateOf(errorMessage(message = error.toString()))
+fun EmptyScreen(
+    error: LoadState.Error? = null,
+    heroes: LazyPagingItems<Hero>? = null
+) {
+    var message by remember {
+        mutableStateOf("Find hero here!")
     }
-    val icon by remember {
-        mutableStateOf(R.drawable.ic_error)
+    var icon by remember {
+        mutableStateOf(R.drawable.ic_search_screen)
     }
+
+    if (error != null) {
+        message = errorMessage(error = error)
+        icon = R.drawable.ic_error
+    }
+
     var startAnimation by remember {
         mutableStateOf(false)
     }
@@ -44,43 +59,69 @@ fun EmptyScreen(error: LoadState.Error) {
     LaunchedEffect(key1 = true) {
         startAnimation = true
     }
-    EmptyContent(alphaAnim = alphaAnim, icon = icon, message = message)
+    EmptyContent(
+        alphaAnim = alphaAnim,
+        icon = icon,
+        message = message,
+        error = error,
+        heroes = heroes
+    )
 }
 
 @Composable
-fun EmptyContent(alphaAnim: Float, icon: Int, message: String) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+fun EmptyContent(
+    alphaAnim: Float,
+    icon: Int,
+    message: String,
+    error: LoadState.Error? = null,
+    heroes: LazyPagingItems<Hero>? = null
+) {
+    var isRefreshing by remember { mutableStateOf(false) }
+
+    SwipeRefresh(
+        swipeEnabled = error != null,
+        state = rememberSwipeRefreshState(isRefreshing = isRefreshing),
+        onRefresh = {
+            isRefreshing = true
+            heroes?.refresh()
+            isRefreshing = false
+        }
     ) {
-        Icon(
+        Column(
             modifier = Modifier
-                .size(SIZE_IMAGE_ERROR)
-                .alpha(alpha = alphaAnim),
-            painter = painterResource(icon),
-            contentDescription = stringResource(R.string.error_image),
-            tint = if (isSystemInDarkTheme()) LightGray else DarkGrey
-        )
-        Text(
-            modifier = Modifier
-                .padding(top = EXTRA_SMALL_PADDING_6)
-                .alpha(alpha = alphaAnim),
-            text = message,
-            color = if (isSystemInDarkTheme()) LightGray else DarkGrey,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Bold,
-            fontSize = MaterialTheme.typography.subtitle1.fontSize
-        )
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                modifier = Modifier
+                    .size(SIZE_IMAGE_ERROR)
+                    .alpha(alpha = alphaAnim),
+                painter = painterResource(icon),
+                contentDescription = stringResource(R.string.error_image),
+                tint = if (isSystemInDarkTheme()) LightGray else DarkGrey
+            )
+            Text(
+                modifier = Modifier
+                    .padding(top = EXTRA_SMALL_PADDING_6)
+                    .alpha(alpha = alphaAnim),
+                text = message,
+                color = if (isSystemInDarkTheme()) LightGray else DarkGrey,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = MaterialTheme.typography.subtitle1.fontSize
+            )
+        }
     }
 }
 
-fun errorMessage(message: String): String {
-    return when {
-        message.contains("SocketTimeoutException") -> {
+fun errorMessage(error: LoadState.Error): String {
+    return when (error.error) {
+        is SocketTimeoutException -> {
             "Server Unavailable."
         }
-        message.contains("ConnectException") -> {
+        is ConnectException -> {
             "Internet Unavailable."
         }
         else -> {
