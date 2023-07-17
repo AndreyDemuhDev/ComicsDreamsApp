@@ -1,10 +1,12 @@
 package com.pidzama.comicsdreamsapp.navigation
 
+import com.pidzama.comicsdreamsapp.util.Constants.DETAIL_ARGUMENT_KEY
+
 sealed class Screens(val route: String) {
     object Splash : Screens(route = "splash_screen")
     object OnBoarding : Screens(route = "onBoarding_screen")
     object Home : Screens(route = "home_screen")
-    object Details : Screens(route = "details_screen/{heroId}") {
+    object Details : Screens(route = "details_screen/{$DETAIL_ARGUMENT_KEY}") {
         fun passHeroId(heroId: Int): String {
             return "details_screen/$heroId"
         }

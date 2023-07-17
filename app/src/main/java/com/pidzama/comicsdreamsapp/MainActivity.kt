@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.navigation.NavHostController
@@ -15,6 +16,7 @@ import com.pidzama.comicsdreamsapp.ui.theme.ComicsDreamsAppTheme
 import com.pidzama.comicsdreamsapp.ui.theme.Purple700
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
