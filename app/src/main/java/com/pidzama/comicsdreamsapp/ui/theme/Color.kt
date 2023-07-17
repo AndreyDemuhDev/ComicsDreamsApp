@@ -17,7 +17,6 @@ val ShimmerLightGray = Color(0xFCD6D6D6)
 val ShimmerMediumGray = Color(0xFF9E9E9E)
 val ShimmerDarkGray = Color(0xFF1D1D1D)
 
-
 val Colors.onBoardingScreenBackgroundColor
     @Composable
     get() = if (isLight) Color.White else Color.Black

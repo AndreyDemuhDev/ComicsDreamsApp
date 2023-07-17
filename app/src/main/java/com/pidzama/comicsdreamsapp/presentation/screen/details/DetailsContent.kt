@@ -1,5 +1,6 @@
 package com.pidzama.comicsdreamsapp.presentation.screen.details
 
+import android.graphics.Color.parseColor
 import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
@@ -8,8 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -27,6 +27,7 @@ import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pidzama.comicsdreamsapp.R
 import com.pidzama.comicsdreamsapp.domain.model.Hero
 import com.pidzama.comicsdreamsapp.ui.theme.*
@@ -40,7 +41,8 @@ import com.pidzama.comicsdreamsapp.util.components.OrderedList
 @Composable
 fun DetailsContent(
     navController: NavHostController,
-    currentHero: Hero?
+    currentHero: Hero?,
+    colors: Map<String, String>
 ) {
 
     val scaffoldState = rememberBottomSheetScaffoldState(
@@ -55,6 +57,20 @@ fun DetailsContent(
             ZERO_RADIUS_SHEET
     )
 
+    var vibrant by remember { mutableStateOf("#000000") }
+    var darkVibrant by remember { mutableStateOf("#000000") }
+    var onDarkVibrant by remember { mutableStateOf("#FFFFFF") }
+
+    LaunchedEffect(key1 = currentHero) {
+        vibrant = colors["vibrant"]!!
+        darkVibrant = colors["darkVibrant"]!!
+        onDarkVibrant = colors["onDarkVibrant"]!!
+    }
+    val systemUiColorController = rememberSystemUiController()
+    systemUiColorController.setSystemBarsColor(
+        color = Color(parseColor(darkVibrant))
+    )
+
     BottomSheetScaffold(
         sheetShape = RoundedCornerShape(
             topStart = animCornerRadius,
@@ -63,13 +79,21 @@ fun DetailsContent(
         scaffoldState = scaffoldState,
         sheetPeekHeight = HEIGHT_SHEET_MIN,
         sheetContent = {
-            currentHero?.let { BottomSheetContent(currentHero = it) }
+            currentHero?.let {
+                BottomSheetContent(
+                    currentHero = it,
+                    infoBoxIconColor = Color(parseColor(vibrant)),
+                    sheetBackgroundColor = Color(parseColor(darkVibrant)),
+                    contentColor = Color(parseColor(onDarkVibrant))
+                )
+            }
         },
         content = {
             currentHero?.let { hero ->
                 ImageContent(
                     heroImage = hero.image,
                     imageFraction = currentSheetFraction,
+                    backgroundColor = Color(parseColor(darkVibrant)),
                     onCloseClicked = {
                         navController.popBackStack()
                     }
