@@ -1,6 +1,5 @@
 package com.pidzama.comicsdreamsapp.data.paging_source
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -10,8 +9,6 @@ import com.pidzama.comicsdreamsapp.data.local.ComicsDreamsDatabase
 import com.pidzama.comicsdreamsapp.data.remote.ComicsDreamsApi
 import com.pidzama.comicsdreamsapp.domain.model.Hero
 import com.pidzama.comicsdreamsapp.domain.model.HeroRemoteServer
-import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 
 @ExperimentalPagingApi
@@ -30,10 +27,8 @@ class HeroRemoteMediator @Inject constructor(
 
         val diffInMinutes = (currentTime - lastUpdated) / 1000 / 60
         return if (diffInMinutes.toInt() <= cacheTimeout) {
-            Log.d("RemoteMediator", "UP DATE")
             InitializeAction.SKIP_INITIAL_REFRESH
         } else {
-            Log.d("RemoteMediator", "REFRESH DATE")
             InitializeAction.LAUNCH_INITIAL_REFRESH
         }
     }
@@ -116,10 +111,4 @@ class HeroRemoteMediator @Inject constructor(
             heroRemoteKeysDao.getRemoteKey(heroId = hero.id)
         }
     }
-
-//    private fun parseMillis(millis: Long): String {
-//        val date = Date(millis)
-//        val format = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.ROOT)
-//        return format.format(date)
-//    }
 }

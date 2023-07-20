@@ -1,6 +1,5 @@
 package com.pidzama.comicsdreamsapp.presentation.screen.search
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import com.pidzama.comicsdreamsapp.R
@@ -48,13 +49,19 @@ fun SearchWidget(
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .height(HEIGHT_TOP_APP_BAR),
+            .height(HEIGHT_TOP_APP_BAR)
+            .semantics {
+                       contentDescription = "Search Widget"
+            },
         elevation = AppBarDefaults.TopAppBarElevation,
         color = MaterialTheme.colors.topAppBarBackgroundColor
     ) {
         TextField(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .semantics {
+                    contentDescription = "TextField"
+                },
             value = text,
             onValueChange = { onTextChanged(it) },
             placeholder = {
@@ -84,6 +91,9 @@ fun SearchWidget(
             },
             trailingIcon = {
                 IconButton(
+                    modifier = Modifier.semantics {
+                        contentDescription = "Close Icon Button"
+                    },
                     onClick = {
                         if (text.isNotEmpty()) {
                             onTextChanged("")

@@ -55,6 +55,4 @@ fun DetailsScreen(
 
         }
     }
-
-
 }

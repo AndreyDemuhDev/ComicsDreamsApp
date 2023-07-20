@@ -1,7 +1,6 @@
 package com.pidzama.comicsdreamsapp.presentation.screen.details
 
 import android.graphics.Color.parseColor
-import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -21,11 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
-import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pidzama.comicsdreamsapp.R
@@ -263,10 +259,6 @@ val BottomSheetScaffoldState.currentSheetFraction: Float
         val fraction = bottomSheetState.progress.fraction
         val targetValue = bottomSheetState.targetValue
         val currentValue = bottomSheetState.currentValue
-
-        Log.d("Fraction", fraction.toString())
-        Log.d("FractionTarget", targetValue.toString())
-        Log.d("FractionCurrent", currentValue.toString())
 
         return when {
             currentValue == BottomSheetValue.Collapsed && targetValue == BottomSheetValue.Collapsed -> 1f
