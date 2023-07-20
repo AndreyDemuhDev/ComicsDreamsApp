@@ -1,6 +1,5 @@
 package com.pidzama.comicsdreamsapp.util.components
 
-
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
