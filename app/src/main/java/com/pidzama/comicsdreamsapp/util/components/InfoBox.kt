@@ -52,7 +52,8 @@ fun InfoBox(
                 modifier = Modifier.alpha(ContentAlpha.medium),
                 text = smallText,
                 color = textColor,
-                fontSize = MaterialTheme.typography.overline.fontSize
+                fontSize = MaterialTheme.typography.body1.fontSize,
+                fontWeight = FontWeight.Medium
             )
         }
     }

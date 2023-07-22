@@ -33,6 +33,6 @@ fun HomeTopBar(onSearchClick: () -> Unit) {
 
 @Preview
 @Composable
-fun previewTopBar(){
+fun PreviewTopBar(){
     HomeTopBar {}
 }

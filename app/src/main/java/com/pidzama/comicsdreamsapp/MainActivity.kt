@@ -14,6 +14,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pidzama.comicsdreamsapp.navigation.SetupNavGraph
 import com.pidzama.comicsdreamsapp.ui.theme.ComicsDreamsAppTheme
 import com.pidzama.comicsdreamsapp.ui.theme.Purple700
+import com.pidzama.comicsdreamsapp.ui.theme.White
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 val darkTheme = isSystemInDarkTheme()
                 SideEffect {
                     systemUiController.setSystemBarsColor(
-                        color = if (darkTheme) Black else Purple700
+                        color = if (darkTheme) Black else White
                     )
                 }
                 navController = rememberNavController()
