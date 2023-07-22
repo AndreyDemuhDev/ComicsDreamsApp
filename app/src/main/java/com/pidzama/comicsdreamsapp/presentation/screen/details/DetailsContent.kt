@@ -52,6 +52,7 @@ fun DetailsContent(
         else
             ZERO_RADIUS_SHEET
     )
+    val systemUiColorController = rememberSystemUiController()
 
     var vibrant by remember { mutableStateOf("#000000") }
     var darkVibrant by remember { mutableStateOf("#000000") }
@@ -62,10 +63,12 @@ fun DetailsContent(
         darkVibrant = colors["darkVibrant"]!!
         onDarkVibrant = colors["onDarkVibrant"]!!
     }
-    val systemUiColorController = rememberSystemUiController()
-    systemUiColorController.setSystemBarsColor(
-        color = Color(parseColor(darkVibrant))
-    )
+
+    SideEffect {
+        systemUiColorController.setSystemBarsColor(
+            color = Color(parseColor(darkVibrant))
+        )
+    }
 
     BottomSheetScaffold(
         sheetShape = RoundedCornerShape(
@@ -125,17 +128,17 @@ fun BottomSheetContent(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             InfoBox(
-                icon = painterResource(id = R.drawable.ic_position),
+                icon = painterResource(id = R.drawable.ic_power),
                 iconColor = infoBoxIconColor,
-                bigText = "${currentHero.height}",
-                smallText = stringResource(R.string.height),
+                bigText = "${currentHero.power}",
+                smallText = stringResource(R.string.power),
                 textColor = contentColor
             )
             InfoBox(
-                icon = painterResource(id = R.drawable.ic_position),
+                icon = painterResource(id = R.drawable.ic_heihgt),
                 iconColor = infoBoxIconColor,
-                bigText = "${currentHero.weight}",
-                smallText = stringResource(R.string.weight),
+                bigText = "${currentHero.height}",
+                smallText = stringResource(R.string.height),
                 textColor = contentColor
             )
             InfoBox(
@@ -160,7 +163,7 @@ fun BottomSheetContent(
                 .fillMaxWidth()
                 .alpha(ContentAlpha.medium)
                 .padding(bottom = EXTRA_SMALL_PADDING_6),
-            text = "Rear name: ${currentHero.realName}",
+            text = "Real name: ${currentHero.realName}",
             color = contentColor,
             fontSize = MaterialTheme.typography.body1.fontSize
         )
@@ -271,20 +274,20 @@ val BottomSheetScaffoldState.currentSheetFraction: Float
 
 @Preview
 @Composable
-fun previewBottomSheetDialog() {
+fun PreviewBottomSheetDialog() {
     BottomSheetContent(
         currentHero = Hero(
             id = 20,
             alias = "Wolverine",
             realName = "James Howlett",
             image = "/images/wolverine.jpg",
-            biography = "WOLVEsdfsdfsdfsdfsfsdfsdfsdfsdfsdfsdfsdfsfsfRINE",
+            biography = "WOLVERINE текст написан прост для превью отображения BottomSheetDialog'а",
             position = "Good",
             height = 1.76,
-            weight = 133,
+            power = 133,
             rating = 4.6,
             allies = listOf("Professor X", "Storm", "Cyclops", "Captain America"),
-            enemies = listOf("Hamato Yoshi", "Splinter", "April O’Neil"),
+            enemies = listOf("Hamato Yoshi Yoshi Yoshi", "Splinter", "April O’Neil"),
             publisher = "Marvel"
         )
     )

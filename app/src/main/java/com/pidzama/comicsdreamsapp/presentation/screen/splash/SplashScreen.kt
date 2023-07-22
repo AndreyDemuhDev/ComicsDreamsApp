@@ -12,8 +12,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,8 +19,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.pidzama.comicsdreamsapp.R
 import com.pidzama.comicsdreamsapp.navigation.Screens
-import com.pidzama.comicsdreamsapp.ui.theme.Purple500
-import com.pidzama.comicsdreamsapp.ui.theme.Purple700
+import com.pidzama.comicsdreamsapp.ui.theme.Black
+import com.pidzama.comicsdreamsapp.ui.theme.White
 
 @Composable
 fun SplashScreen(
@@ -52,32 +50,21 @@ fun SplashScreen(
 
 @Composable
 fun Splash(degrees: Float) {
-    if (isSystemInDarkTheme()) {
-        Box(
-            modifier = Modifier
-                .background(Color.Black)
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(R.drawable.ic_logo),
-                contentDescription = stringResource(R.string.splash_logo)
-            )
-        }
+    val modifier = if (isSystemInDarkTheme()) {
+        Modifier.background(Black)
     } else {
-        Box(
-            modifier = Modifier
-                .background(Brush.verticalGradient(listOf(Purple700, Purple500)))
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(R.drawable.ic_logo),
-                contentDescription = stringResource(R.string.splash_logo)
-            )
-        }
+        Modifier.background(White)
+    }
+    Box(
+        modifier = modifier
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            modifier = Modifier.rotate(degrees = degrees),
+            painter = painterResource(R.drawable.ic_logo),
+            contentDescription = stringResource(R.string.splash_logo)
+        )
     }
 }
 

@@ -9,10 +9,9 @@ import com.pidzama.comicsdreamsapp.data.local.ComicsDreamsDatabase
 import com.pidzama.comicsdreamsapp.data.remote.ComicsDreamsApi
 import com.pidzama.comicsdreamsapp.domain.model.Hero
 import com.pidzama.comicsdreamsapp.domain.model.HeroRemoteServer
-import javax.inject.Inject
 
 @ExperimentalPagingApi
-class HeroRemoteMediator @Inject constructor(
+class HeroRemoteMediator(
     private val comicsDreamsApi: ComicsDreamsApi,
     private val comicsDreamsDatabase: ComicsDreamsDatabase
 ) : RemoteMediator<Int, Hero>() {

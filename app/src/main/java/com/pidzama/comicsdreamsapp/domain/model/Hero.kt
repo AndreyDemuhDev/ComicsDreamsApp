@@ -16,7 +16,7 @@ data class Hero(
     val biography: String,
     val position: String,
     val height: Double,
-    val weight: Int,
+    val power: Int,
     val rating: Double,
     val allies: List<String>,
     val enemies: List<String>,

@@ -4,9 +4,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.pidzama.comicsdreamsapp.data.remote.ComicsDreamsApi
 import com.pidzama.comicsdreamsapp.domain.model.Hero
-import javax.inject.Inject
 
-class SearchHeroes @Inject constructor(
+class SearchHeroes(
     private val comicsDreamsApi: ComicsDreamsApi,
     private val query: String
 ) : PagingSource<Int, Hero>() {

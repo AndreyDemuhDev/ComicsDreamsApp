@@ -1,7 +1,6 @@
 package com.pidzama.comicsdreamsapp.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -27,7 +26,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.items
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.pidzama.comicsdreamsapp.R
@@ -176,7 +174,7 @@ fun HeroItem(
 
 @Preview
 @Composable
-fun previewHomeScreen() {
+fun PreviewHomeScreen() {
     HeroItem(
         hero = Hero(
             id = 1,
@@ -186,7 +184,7 @@ fun previewHomeScreen() {
             biography = "Давныйм давно боги Египта наделили Bob'а суперсилой, во благо человечества. Теперь он должен блисти порядок вгороде. Одет как муммия",
             position = "Gjcbnbjy",
             height = 1.89,
-            weight = 87,
+            power = 87,
             rating = 4.2,
             allies = listOf("Spider-man", "Batman", "Iron Man"),
             enemies = listOf("Goblin", "Dr.Evil"),
@@ -198,7 +196,7 @@ fun previewHomeScreen() {
 
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun previewDarkHomeScreen() {
+fun PreviewDarkHomeScreen() {
     HeroItem(
         hero = Hero(
             id = 1,
@@ -208,7 +206,7 @@ fun previewDarkHomeScreen() {
             biography = "Давныйм давно боги Египта наделили Bob'а суперсилой, во благо человечества. Теперь он должен блисти порядок вгороде. Одет как муммия",
             position = "Gjcbnbjy",
             height = 1.89,
-            weight = 87,
+            power = 87,
             rating = 4.2,
             allies = listOf("Spider-man", "Batman", "Iron Man"),
             enemies = listOf("Goblin", "Dr.Evil"),

@@ -127,7 +127,7 @@ fun SearchWidget(
 
 @Preview
 @Composable
-fun previewTopAppBar() {
+fun PreviewTopAppBar() {
     SearchWidget(
         text = "",
         onTextChanged = {},
