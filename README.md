@@ -1,5 +1,5 @@
 <p align="center"># ComicsDreamsApp</p>
-# Заголовок первого уровня
+<h1>Заголовок первого уровня</h1>
 <p align="center">
 <img width="200" height="200" src="https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/ic_logo.svg">
 </p>
