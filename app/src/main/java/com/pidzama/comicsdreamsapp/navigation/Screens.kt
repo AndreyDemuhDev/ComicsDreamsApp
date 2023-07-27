@@ -11,6 +11,7 @@ sealed class Screens(val route: String) {
             return "details_screen/$heroId"
         }
     }
-    object Search: Screens(route = "search_screen")
+
+    object Search : Screens(route = "search_screen")
 }
 

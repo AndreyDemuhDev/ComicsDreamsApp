@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.Flow
 class SearchHeroesUseCase(
     private val repository: Repository
 ) {
-
     operator fun invoke(query: String): Flow<PagingData<Hero>> {
         return repository.searchHeroes(query = query)
     }

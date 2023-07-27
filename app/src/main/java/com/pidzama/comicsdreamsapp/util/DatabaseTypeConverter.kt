@@ -13,5 +13,4 @@ class DatabaseTypeConverter {
     fun convertStringToList(string: String): List<String> {
         return string.split(",")
     }
-
 }
