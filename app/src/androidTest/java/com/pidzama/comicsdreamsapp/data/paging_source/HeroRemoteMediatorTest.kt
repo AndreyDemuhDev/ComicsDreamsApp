@@ -30,7 +30,7 @@ class HeroRemoteMediatorTest {
     }
 
     @After
-    fun cleanup(){
+    fun cleanup() {
         comicsDreamsDatabase.clearAllTables()
     }
 

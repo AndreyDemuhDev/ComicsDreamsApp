@@ -18,5 +18,4 @@ class OnBoardingViewModel @Inject constructor(
             useCases.saveOnBoardingUseCase(showed = showed)
         }
     }
-
 }

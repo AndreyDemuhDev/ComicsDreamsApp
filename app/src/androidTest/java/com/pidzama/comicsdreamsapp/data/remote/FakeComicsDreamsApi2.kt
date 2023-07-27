@@ -2,22 +2,22 @@ package com.pidzama.comicsdreamsapp.data.remote
 
 import com.pidzama.comicsdreamsapp.domain.model.ApiResponse
 import com.pidzama.comicsdreamsapp.domain.model.Hero
-import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.BANE
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.BATMAN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.BATWOMAN
-import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.CARNAGE
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.CATWOMAN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.DAREDEVIL
+import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.DEATHSTROKE
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.DONATELLO
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.FLASH
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.GREEN_LANTERN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.HARLEY_QUINN
+import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.HELLBOY
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.HULK
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.IRON_MAN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.JOKER
+import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.NIGHTWING
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.PUNISHER
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.RAVEN
-import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.SHREDDER
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.SPIDER_MAN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.SUPERMAN
 import com.pidzama.comicsdreamsapp.util.Constants.BIOGRAPHY.WOLVERINE
@@ -68,16 +68,16 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
         ),
         Hero(
             id = 3,
-            alias = "Carnage",
-            realName = "Cletus Kasady",
-            image = "/images/carnage.jpg",
-            biography = CARNAGE,
-            position = "Evil",
-            height = 1.88,
-            power = 79,
-            rating = 3.8,
-            allies = listOf("Shriek", "Demogoblin", "Baron Mordo"),
-            enemies = listOf("Spider-Man", "Venom", "Captain America ", "Iron Man"),
+            alias = "Wolverine",
+            realName = "James «Jimmy» Howlett",
+            image = "/images/wolverine.jpg",
+            biography = WOLVERINE,
+            position = "Good",
+            height = 1.76,
+            power = 89,
+            rating = 4.6,
+            allies = listOf("Professor X", "Storm", "Cyclops", "Captain America"),
+            enemies = listOf("Magneto", "Lady Deathstrike", "Sabretooth", "Mystique"),
             publisher = "Marvel"
         ),
         Hero(
@@ -126,17 +126,17 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
         ),
         Hero(
             id = 7,
-            alias = "Bane",
-            realName = "Unknown",
-            image = "/images/bane.jpg",
-            biography = BANE,
-            position = "Evil",
-            height = 2.03,
-            power = 82,
-            rating = 4.2,
-            allies = listOf("Deadshot", "Alexander Joseph «Lex» Luthor"),
-            enemies = listOf("Batman", "Nightwing", "Killer Croc"),
-            publisher = "DC Comics"
+            alias = "Hellboy",
+            realName = "Anung Un Rama",
+            image = "/images/hellboy.jpg",
+            biography = HELLBOY,
+            position = "Good",
+            height = 1.95,
+            power = 90,
+            rating = 4.4,
+            allies = listOf("Эйб Сапиен", "Лиз Шерман", "Роджер"),
+            enemies = listOf("Огру Джахад", "Распутин"),
+            publisher = "Dark Horse Comics"
         ),
         Hero(
             id = 8,
@@ -157,17 +157,17 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
     private var page3 = listOf(
         Hero(
             id = 9,
-            alias = "Shredder",
-            realName = "Oroky Saki",
-            image = "/images/shredder.jpg",
-            biography = SHREDDER,
+            alias = "Deathstroke",
+            realName = "Slade Joseph Wilson",
+            image = "/images/deathstroke.jpg",
+            biography = DEATHSTROKE,
             position = "Evil",
-            height = 1.89,
-            power = 74,
-            rating = 3.5,
-            allies = listOf("Karai", "Krang"),
-            enemies = listOf("Teenage Mutant Ninja Turtles", "Hamato Yoshi", "Splinter", "April O’Neil"),
-            publisher = "Mirage Studios"
+            height = 1.93,
+            power = 79,
+            rating = 4.1,
+            allies = listOf("Deadshot", "Green Arrow", "Alexander Joseph «Lex» Luthor"),
+            enemies = listOf("Batman", "Nightwing", "Ra’s al Ghul", "Green Arrow"),
+            publisher = "DC Comics"
         ),
         Hero(
             id = 10,
@@ -266,7 +266,12 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
             power = 83,
             rating = 3.9,
             allies = listOf("Batman", "Green Arrow", "Wonder woman", "Flash ", "Superman"),
-            enemies = listOf("Agent Orange", "Sinestro Corps", "Red Lantern Corps", "Black Lantern Corps"),
+            enemies = listOf(
+                "Agent Orange",
+                "Sinestro Corps",
+                "Red Lantern Corps",
+                "Black Lantern Corps"
+            ),
             publisher = "DC Comics"
         ),
     )
@@ -339,17 +344,17 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
         ),
         Hero(
             id = 20,
-            alias = "Wolverine",
-            realName = "James Howlett",
-            image = "/images/wolverine.jpg",
-            biography = WOLVERINE,
+            alias = "Nightwing",
+            realName = "Dick Grayson",
+            image = "/images/nightwing.jpg",
+            biography = NIGHTWING,
             position = "Good",
             height = 1.76,
-            power = 84,
-            rating = 4.6,
-            allies = listOf("Professor X", "Storm", "Cyclops", "Captain America"),
-            enemies = listOf("Magneto", "Sabretooth", "Lady Deathstrike"),
-            publisher = "Marvel"
+            power = 76,
+            rating = 3.5,
+            allies = listOf("Batman", "Batwoman", "Batgirl", "Superman"),
+            enemies = listOf("Joker", "Two-Face", "Penguine", "Bane", "Deathstroke"),
+            publisher = "DC Comics"
         ),
     )
 
@@ -380,12 +385,12 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
         page1 = emptyList()
     }
 
-    fun addException(){
+    fun addException() {
         exception = true
     }
 
     override suspend fun getAllHeroes(page: Int): ApiResponse {
-        if (exception){
+        if (exception) {
             throw IOException()
         }
         require(page in 1..5)

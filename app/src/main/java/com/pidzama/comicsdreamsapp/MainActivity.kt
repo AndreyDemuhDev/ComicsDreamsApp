@@ -13,7 +13,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pidzama.comicsdreamsapp.navigation.SetupNavGraph
 import com.pidzama.comicsdreamsapp.ui.theme.ComicsDreamsAppTheme
-import com.pidzama.comicsdreamsapp.ui.theme.Purple700
 import com.pidzama.comicsdreamsapp.ui.theme.White
 import dagger.hilt.android.AndroidEntryPoint
 

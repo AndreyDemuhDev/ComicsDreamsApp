@@ -61,7 +61,7 @@ fun InfoBox(
 
 @Preview(showBackground = true)
 @Composable
-fun previewInfoBox() {
+fun PreviewInfoBox() {
     InfoBox(
         icon = painterResource(id = R.drawable.ic_position),
         iconColor = MaterialTheme.colors.primary,
@@ -73,7 +73,7 @@ fun previewInfoBox() {
 
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun previewDarkInfoBox() {
+fun PreviewDarkInfoBox() {
     InfoBox(
         icon = painterResource(id = R.drawable.ic_position),
         iconColor = MaterialTheme.colors.primary,

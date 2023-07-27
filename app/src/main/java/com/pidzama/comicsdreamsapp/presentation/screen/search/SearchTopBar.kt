@@ -19,10 +19,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import com.pidzama.comicsdreamsapp.R
-import com.pidzama.comicsdreamsapp.ui.theme.HEIGHT_TOP_APP_BAR
-import com.pidzama.comicsdreamsapp.ui.theme.White
-import com.pidzama.comicsdreamsapp.ui.theme.topAppBarBackgroundColor
-import com.pidzama.comicsdreamsapp.ui.theme.topAppBarContentColor
+import com.pidzama.comicsdreamsapp.ui.theme.*
 
 @Composable
 fun SearchTopBar(
@@ -51,7 +48,7 @@ fun SearchWidget(
             .fillMaxWidth()
             .height(HEIGHT_TOP_APP_BAR)
             .semantics {
-                       contentDescription = "Search Widget"
+                contentDescription = "Search Widget"
             },
         elevation = AppBarDefaults.TopAppBarElevation,
         color = MaterialTheme.colors.topAppBarBackgroundColor
@@ -119,7 +116,8 @@ fun SearchWidget(
             ),
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.Transparent,
-                cursorColor = MaterialTheme.colors.topAppBarContentColor
+                cursorColor = MaterialTheme.colors.topAppBarContentColor,
+                focusedIndicatorColor = MaterialTheme.colors.indicatorTextField
             )
         )
     }

@@ -38,6 +38,9 @@ val Colors.backgroundButtonColor
 val Colors.topAppBarContentColor
     get() = if (isLight) DarkGrey else White
 
+val Colors.indicatorTextField
+    get() = if (isLight) Black else White
+
 val Colors.topAppBarBackgroundColor
     get() = if (isLight) White else Black
 

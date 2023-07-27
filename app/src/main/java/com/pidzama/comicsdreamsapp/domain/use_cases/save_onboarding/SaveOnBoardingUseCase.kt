@@ -5,7 +5,7 @@ import com.pidzama.comicsdreamsapp.data.repository.Repository
 class SaveOnBoardingUseCase(
     private val repository: Repository
 ) {
-    suspend operator fun invoke(showed: Boolean){
+    suspend operator fun invoke(showed: Boolean) {
         repository.saveOnBoardingState(showed = showed)
     }
 }

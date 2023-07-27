@@ -36,14 +36,14 @@ class FakeComicsDreamsApi : ComicsDreamsApi {
         ),
         Hero(
             id = 3,
-            alias = "Carnage",
+            alias = "Wolverine",
             realName = "",
             image = "",
             biography = "",
             position = "",
-            height = 1.88,
-            power = 86,
-            rating = 3.8,
+            height = 1.76,
+            power = 89,
+            rating = 4.6,
             allies = listOf(),
             enemies = listOf(),
             publisher = ""
