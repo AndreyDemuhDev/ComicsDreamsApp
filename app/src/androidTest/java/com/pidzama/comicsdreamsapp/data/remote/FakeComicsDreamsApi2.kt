@@ -217,7 +217,7 @@ class FakeComicsDreamsApi2 : ComicsDreamsApi {
             id = 13,
             alias = "Raven",
             realName = "Rachel Roth",
-            image = "/images/raven.jpg",
+            image = "/images/raven_image.jpg",
             biography = RAVEN,
             position = "Good",
             height = 1.67,
