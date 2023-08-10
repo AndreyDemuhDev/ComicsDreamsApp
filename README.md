@@ -29,4 +29,6 @@ ComicsDreamsApp
 9. Настройка динамического, визуального оформления приложения с помощью **Palette API**.
 10. Приложение покрыто тестами (**Unit Testing** и **UI Testing**).</br>
 и многое другое.:smile:
-   
+
+  ## Превью проекта
+   ![image](https://github.com/AndreyDemuhDev/MovieFind/blob/master/preview_comics_dreams_app.gif)
