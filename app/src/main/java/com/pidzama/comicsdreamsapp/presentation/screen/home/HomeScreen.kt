@@ -29,9 +29,9 @@ fun HomeScreen(
 
     Scaffold(
         topBar = {
-            HomeTopBar(onSearchClick = {
-                navController.navigate(Screens.Search.route)
-            })
+            HomeTopBar(
+                onSearchClick = { navController.navigate(Screens.Search.route) }
+            )
         },
         content = {
             ListContent(
