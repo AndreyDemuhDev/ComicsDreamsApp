@@ -31,4 +31,4 @@ ComicsDreamsApp
 и многое другое.:smile:
 
   ## Превью проекта
-   ![image](https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/preview_comicsDreamsApp.gif)
+   ![image](https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/preview_comics_dreams_app.gif)
