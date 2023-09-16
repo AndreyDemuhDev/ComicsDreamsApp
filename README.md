@@ -31,4 +31,5 @@ ComicsDreamsApp
 и многое другое.:smile:
 
   ## Превью проекта
+  Превью тут, просто долго подргуржается, необходимо немного подождать. Спасибо за понимание и терпение
    ![image](https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/preview_comics_dreams_app.gif)
