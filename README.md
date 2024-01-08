@@ -33,4 +33,4 @@ ComicsDreamsApp
   ## Превью проекта
   Превью тут, просто долго подргуржается, необходимо немного подождать. Спасибо за понимание и терпение
   Прошу прощение за качество GIFки :worried:
-   ![image](https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/preview_comics_dreams_app.gif)
+  ![image](https://github.com/AndreyDemuhDev/ComicsDreamsApp/blob/master/preview_comics_dreams_app.gif)
